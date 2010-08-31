@@ -21,7 +21,7 @@ window['Autosave'] = new Class({
         if (this.options.autostart) this.attach();
     }
     , attach : function(){
-        var $this = this,  data = this.retrieveData(this.id);
+        var $this = this,  data = this.retrieveData();
         
         if (data){
            this.current = this.element.value = data.value;
@@ -33,13 +33,24 @@ window['Autosave'] = new Class({
         }
         
         this.handle = check.periodical(this.options.interval);
+        return this;
     }
     , detach : function(){$clear(this.handle);}
-    , save : function(value){this.step++;}
-    , retrieveData : function(id){
-        return {value: '', step : 0}
+    , save : function(value){
+        this.fireEvent('save');
+        return this;
     }
-    , empty : function(){}
+    , retrieveData : function(id){
+        this.fireEvent('load');
+        return {
+            value : ''
+            , step : 0
+        }
+    }
+    , empty : function(){
+        this.fireEvent('empty');
+        return this;
+    }
     , toElement : function(){return this.element;}
 });
 
@@ -78,16 +89,20 @@ window['Autosave'].Request = new Class({
                 id : this.id
                 , value : value
                 , step : ++this.step
+                , action : 'save'
             }        
         });
         
         this.current = value;
+        return this.parent();
     }
-    , retrieveData : function(id,step){
+    , retrieveData : function(step, id){
         if (!step) step = -1;
-      
+        id = id || this.id;
+
         var new_value = {}
             , $this = this
+            , method : 'get'
             , req = new Request.JSON({
                 url : this.retrieveUrl
                 , async : false
@@ -104,9 +119,10 @@ window['Autosave'].Request = new Class({
             data : {
                 id : id
                 , step :step
+                , action : 'get'
             }
         });
-        
+        this.parent();
         return new_value;
     }
     , empty :function(){
@@ -117,12 +133,14 @@ window['Autosave'].Request = new Class({
             url : this.options.emptyUrl
             , data : {
                 id : this.id
+                , action : 'empty'
             }
             , async : false
         }).send();
         this.element.value = '';
         this.step = 0;
-        return this;
+        
+        return this.parent();
     }
 })
 

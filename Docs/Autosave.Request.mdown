@@ -1,0 +1,51 @@
+Class: Autosave.Requset {#Autosave.Request}
+==========================================
+This class is an implementation of the Autosave API, using AJAX request to save and retrieve the data from the Server-Side.
+
+
+Autosave.Request Method: constructor {#Autosave.Request:constructor}
+---------------------------------------------------------------
+### Syntax
+
+	var AS = new Autosave([el,saveUrl,retrieveUrl [,options]);
+
+### Arguments
+
+1. element (`Element`/`string`) : A text field to monitor. Element must have a valid ID.
+2. saveUrl (`string`) : A URL to use when saving data.
+3. retrieveUrl (`string`) : A URL to use when retrieving data
+4. options (`Object`) : see options.
+
+### Options
+1. emptyUrl (`string`) : a url to use for the empty action.
+
+
+Server Side {#ServerSide}
+==========
+This is the way the Class expects the server side to behave:
+
+Server-Side: Save {#ServerSide:save}
+----------------------------------------
+The save action will use the POST method, and will send the following data:
+
+1. id : the monitored element ID.
+2. step : the current step.
+3. value : the new value to be saved.
+4. action : an action identifier, set to `save`
+
+Server-Side: Retrieve {#ServerSide:Retrieve}
+--------------------------------------------
+The retrieve method will use the GET method, passing the following data:
+
+1. id : the id of the element used
+2. step : the step to retrieve. If set to -1, retrieve the newest record.
+3. action : an action identifier, set to `get`
+
+And expects a JSON object, containing the following data:
+
+1. value (`string`) : the value that was requested.
+2. step (`int`) : the step number of that value
+
+Server-Side: Empty {#ServerSide:Empty}
+---------------------------------------------
+The empty method will use the POST method, passing the id of the monitored element.

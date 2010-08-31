@@ -1,0 +1,82 @@
+Class: Autosave {#Autosave}
+==========================================
+
+This Class probides the API for the Autosave class familly.
+
+Autosave Method: constructor {#Autosave:constructor}
+---------------------------------------------------------------
+### Syntax
+
+	var AS = new Autosave([el [,options]);
+
+### Arguments
+
+1. element (`Element`/`string`) : A text field to monitor. Element must have a valid ID.
+2. options (`Object`) : see options.
+
+### Options
+1. intervals (`int`) : At what intervals to check the field's value for cahgens (miliseconds). Default is 5000 (5 seconds).
+2. autostart (`bool`) : Whether or not to autostart the listener on cunstruction. Default to false.
+
+
+Autosave Method: attach {#Autosave:attach}
+-----------------------------------------------
+
+Starts the listener. Will also check if the current element already has a record. If so it will use it to initialize the field.
+
+### Syntax
+
+    AS.attach();
+
+Autosave Method: detach {#Autosave:detach}
+-----------------------------------------------
+
+Detaches the listener.
+
+### Syntax
+
+    AS.detach();
+   
+Autosave Method: save {#Autosave:save}
+-----------------------------------------------
+
+Saves a value to the used storage. This will does nothing by defualt.
+
+### Syntax
+
+    AS.save(value);
+    
+### Arguments:
+1. value (`string`) : a new value to save.
+
+Autosave Method: retrieveData {#Autosave:retrieveData}
+-----------------------------------------------
+Retrieves data from storage. This method does nothing by default. 
+
+### Syntax
+
+    AS.retrieveData([ step [, id ] ]);
+    
+### Arguments:
+1. step (`int`) : If supplied, will attempt to retrieve the data of the supplied step. Default is -1, which means - fetch the newest record.
+2. id (`string`) : an element's id to look for in the storage. If non supplied will use the current element's id
+
+### Retruned value:
+A literal object, containing the returned step and value:
+    
+    {value:"value",step:0}
+    
+
+Autosave Method: empty {#Autosave:empty}
+-----------------------------------------------
+Will empty the current record set. Use this to initialize the save stack (maybe on sumbit).
+
+### Syntax
+
+    AS.empty();
+    
+Autosave: Events {#Autosave:events}
+----------------------------------------
+ * save : will fire when save is complete
+ * load : will fire when load is complete
+ * empty : will fire when empty is complete
