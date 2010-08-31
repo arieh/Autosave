@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>Autosave Demo</title>
+</head>
+<body>
+    <h1>Autosave Demo</h1>
+    <p>Enter some value into the textbox. That value will be autosaved every 5 seconds if changed. Even if you leave the page and open it again, The last data used will be saved.</p>
+	<textarea name="exp1" id="exp1" cols="30" rows="10"></textarea>
+    <a href="javascript:;" id='empty'>empty records</a>
+    <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/mootools/1.2.4/mootools-yui-compressed.js'></script>
+    <script type="text/javascript" src="../Source/Autosave.js"></script>
+    <script type="text/javascript">
+        var as = new Autosave.Request('exp1','save.php','get.php',{emptyUrl : 'empty.php'});
+      
+        as.attach();
+        
+        $('empty').addEvent('click',function(){as.empty();});
+    </script>
+</body>
+</html>
