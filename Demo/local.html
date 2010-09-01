@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+    <textarea name="exp1" id="exp1" cols="30" rows="10"></textarea>
+	<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/mootools/1.2.4/mootools-yui-compressed.js'></script>
+    <script type="text/javascript" src="../Source/Autosave.js"></script>
+    <script type="text/javascript" src="Storage.js"></script>
+    <script type="text/javascript" src="../Source/Autosave.Local.js"></script>
+    <script type="text/javascript">
+        var AU = new Autosave.Local('exp1');
+        
+        AU.attach();
+    </script>
+    
+</body>
+</html>
