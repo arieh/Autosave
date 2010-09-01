@@ -7,7 +7,7 @@ The base Class is an empty interface, that does no saving / retrieving.
 Currently, there are 2 implementaions:
 
   * Autosave.Request : an AJAX implementation
-  * Autosave.Storage : a local storage implementation, using ![MooStorage](http://mootools.net/forge/p/storage)
+  * Autosave.Storage : a local storage implementation, using [MooStorage](http://mootools.net/forge/p/storage)
 
 How to use
 -----------
