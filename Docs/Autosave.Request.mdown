@@ -20,11 +20,11 @@ Autosave.Request Method: constructor {#Autosave.Request:constructor}
 1. emptyUrl (`string`) : a url to use for the empty action.
 
 
-Server Side {#Autosave.Request:ServerSide}
-==========
+#Server Side {#Autosave.Request:ServerSide}
+
 This is the way the Class expects the server side to behave:
 
-Server-Side: Save {#Autosave.Request:ServerSide - save}
+Server-Side: Save {#Autosave.Request:ServerSide-save}
 ----------------------------------------
 The save action will use the POST method, and will send the following data:
 
@@ -33,7 +33,7 @@ The save action will use the POST method, and will send the following data:
 3. value : the new value to be saved.
 4. action : an action identifier, set to `save`
 
-Server Side: Retrieve {#Autosave.Request:ServerSide - Retrieve}
+Server Side: Retrieve {#Autosave.Request:ServerSide-Retrieve}
 --------------------------------------------
 The retrieve method will use the GET method, passing the following data:
 
@@ -46,6 +46,6 @@ And expects a JSON object, containing the following data:
 1. value (`string`) : the value that was requested.
 2. step (`int`) : the step number of that value
 
-Server Side: Empty {#Autosave.Request:ServerSide - Empty}
+Server Side: Empty {#Autosave.Request:ServerSide-Empty}
 ---------------------------------------------
 The empty method will use the POST method, passing the id of the monitored element.
