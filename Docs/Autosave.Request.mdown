@@ -3,8 +3,8 @@ Class: Autosave.Requset {#Autosave.Request}
 This class is an implementation of the Autosave API, using AJAX request to save and retrieve the data from the Server-Side.
 
 
-Autosave.Request Method: constructor {#Autosave.Request:constructor}
----------------------------------------------------------------
+## Autosave.Request Method: constructor {#Autosave.Request:constructor}
+
 ### Syntax
 
 	var AS = new Autosave([el,saveUrl,retrieveUrl [,options]);
@@ -24,8 +24,8 @@ Autosave.Request Method: constructor {#Autosave.Request:constructor}
 
 This is the way the Class expects the server side to behave:
 
-Server-Side: Save {#Autosave.Request:ServerSide-save}
-----------------------------------------
+## Server-Side: Save {#Autosave.Request:ServerSide-save}
+
 The save action will use the POST method, and will send the following data:
 
 1. id : the monitored element ID.
@@ -33,8 +33,8 @@ The save action will use the POST method, and will send the following data:
 3. value : the new value to be saved.
 4. action : an action identifier, set to `save`
 
-Server Side: Retrieve {#Autosave.Request:ServerSide-Retrieve}
---------------------------------------------
+## Server Side: Retrieve {#Autosave.Request:ServerSide-Retrieve}
+
 The retrieve method will use the GET method, passing the following data:
 
 1. id : the id of the element used
@@ -46,6 +46,6 @@ And expects a JSON object, containing the following data:
 1. value (`string`) : the value that was requested.
 2. step (`int`) : the step number of that value
 
-Server Side: Empty {#Autosave.Request:ServerSide-Empty}
----------------------------------------------
+## Server Side: Empty {#Autosave.Request:ServerSide-Empty}
+
 The empty method will use the POST method, passing the id of the monitored element.
