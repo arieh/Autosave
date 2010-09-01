@@ -1,0 +1,21 @@
+Class: Autosave.Local {#Autosave.Local}
+==========================================
+
+This Class probides the API for the Autosave class familly.
+
+Autosave Method: constructor {#Autosave.Local:constructor}
+---------------------------------------------------------------
+### Syntax
+
+	var AS = new Autosave.Local([el [,options]);
+
+### Arguments
+
+1. element (`Element`/`string`) : A text field to monitor. Element must have a valid ID.
+2. options (`Object`) : see options.
+
+### Options
+1. intervals (`int`) : At what intervals to check the field's value for cahgens (miliseconds). Default is 5000 (5 seconds).
+2. autostart (`bool`) : Whether or not to autostart the listener on cunstruction. Default to false.
+
+The Class also accepts all Moo.Request options.
