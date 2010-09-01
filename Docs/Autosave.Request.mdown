@@ -3,7 +3,7 @@ Class: Autosave.Requset {#Autosave.Request}
 This class is an implementation of the Autosave API, using AJAX request to save and retrieve the data from the Server-Side.
 
 
-Autosave.Request Method: constructor {#Autosave.Request:constructor}
+Method: constructor {#Autosave.Request:constructor}
 ---------------------------------------------------------------
 ### Syntax
 
@@ -33,7 +33,7 @@ The save action will use the POST method, and will send the following data:
 3. value : the new value to be saved.
 4. action : an action identifier, set to `save`
 
-Server-Side: Retrieve {#ServerSide:Retrieve}
+Server Side: Retrieve {#ServerSide:Retrieve}
 --------------------------------------------
 The retrieve method will use the GET method, passing the following data:
 
@@ -46,6 +46,6 @@ And expects a JSON object, containing the following data:
 1. value (`string`) : the value that was requested.
 2. step (`int`) : the step number of that value
 
-Server-Side: Empty {#ServerSide:Empty}
+Server Side: Empty {#ServerSide:Empty}
 ---------------------------------------------
 The empty method will use the POST method, passing the id of the monitored element.
