@@ -3,7 +3,7 @@ Class: Autosave.Requset {#Autosave.Request}
 This class is an implementation of the Autosave API, using AJAX request to save and retrieve the data from the Server-Side.
 
 
-Method: constructor {#Autosave.Request:constructor}
+Autosave.Request Method: constructor {#Autosave.Request:constructor}
 ---------------------------------------------------------------
 ### Syntax
 

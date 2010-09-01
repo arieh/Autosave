@@ -3,7 +3,7 @@ Class: Autosave.Local {#Autosave.Local}
 
 This Class probides the API for the Autosave class familly.
 
-Autosave Method: constructor {#Autosave.Local:constructor}
+Autosave.Local Method: constructor {#Autosave.Local:constructor}
 ---------------------------------------------------------------
 ### Syntax
 
